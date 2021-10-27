@@ -21,11 +21,41 @@
   Let's first look at an example that will teach you how to use these methods.
 */
 
+/* Using some method to find is one is different */
+// function isBushSafe(berryArray) {
+//   let isSafe = berryArray.some((berry) => berry !== "pink")
+//     ? "Toxic! Leave bush alone!"
+//     : "Bush is safe to eat from";
+//   console.log(isSafe);
+// }
+
+/* every Method to find if all of them are equal */
+// function isBushSafe(berryArray) {
+//   let isSafe = berryArray.every((berry) => berry === "pink");
+//   !isSafe
+//     ? console.log("Toxic! Leave bush alone!")
+//     : console.log("Bush is safe to eat from");
+// }
+
+/* Other way to do it with the filter method*/
 function isBushSafe(berryArray) {
-  //Write your code here
+  let result = "";
+  let eatable = berryArray.filter((berry) => {
+    return berry === "pink";
+  });
+  if (berryArray.length === eatable.length) {
+    result = "Bush is safe to eat from";
+  } else {
+    result = "Toxic! Leave bush alone!";
+  }
+  console.log(result);
 }
 
-/* ======= TESTS - DO NOT MODIFY ===== */
+isBushSafe(["pink", "pink", "pink", "neon", "pink", "transparent"]);
+isBushSafe(["pink", "pink", "pink", "pink"]);
+
+
+// /* ======= TESTS - DO NOT MODIFY ===== */
 
 test("isBushSafe finds toxic busy", () => {
   expect(
